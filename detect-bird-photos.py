@@ -3,8 +3,14 @@ from fastbook import *
 urls = search_images_ddg('forest photos', max_images=1)
 len(urls),urls[0]
 
-dest = Path('bird1.jpg')
+dest = Path('bird.jpg')
 if not dest.exists(): download_url(urls[0], dest, show_progress=False)
+
+urls1 = search_images_ddg('forest photos', max_images=1)
+len(urls1),urls1[0]
+
+dest1 = Path('forest.jpg')
+if not dest.exists(): download_url(urls1[0], dest1, show_progress=False)
 
 im = Image.open(dest)
 im.to_thumb(256,256)
@@ -39,6 +45,6 @@ is_bird,_,probs = learn.predict(PILImage.create('bird.jpg'))
 print(f"This is a: {is_bird}.")
 print(f"Probability: {probs[1].item():.6f}")
 
-is_bird,_,probs = learn.predict(PILImage.create('bird1.jpg'))
+is_bird,_,probs = learn.predict(PILImage.create('forest.jpg'))
 print(f"This is a: {is_bird}.")
 print(f"Probability: {probs[1].item():.6f}")
