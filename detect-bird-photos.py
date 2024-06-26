@@ -6,11 +6,11 @@ len(urls),urls[0]
 dest = Path('bird.jpg')
 if not dest.exists(): download_url(urls[0], dest, show_progress=False)
 
-urls1 = search_images_ddg('forest photos', max_images=1)
-len(urls1),urls1[0]
+urls = search_images_ddg('forest photos', max_images=1)
+len(urls),urls[0]
 
-dest1 = Path('forest.jpg')
-if not dest.exists(): download_url(urls1[0], dest1, show_progress=False)
+dest = Path('forest.jpg')
+if not dest.exists(): download_url(urls[0], dest, show_progress=False)
 
 im = Image.open(dest)
 im.to_thumb(256,256)
